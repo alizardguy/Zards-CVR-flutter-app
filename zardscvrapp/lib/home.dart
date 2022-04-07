@@ -13,8 +13,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+//bottom bar page system
   int _selectedIndex = 0;
+
+//button image feed
   int feedOffsetNumber = 0;
+
+//functions n stuff
   String firstDisplayedImage = "https://api.compensationvr.tk/img/113.png";
   PageController pageController = PageController();
 
@@ -35,30 +40,40 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void nextImage() {
     feedOffsetNumber++;
-    print(feedOffsetNumber);
     feedLook();
   }
 
   void previousImage() {
     feedOffsetNumber--;
-    print(feedOffsetNumber);
     feedLook();
   }
 
   void feedLook() {
-    final uri = Uri.parse(
-        'https://api.compensationvr.tk/api/social/imgfeed?offset=' +
-            feedOffsetNumber.toString() +
-            '&count=1&reverse');
-    //cursed sins to get the newest api image
-    http.get(uri).then((response) {
-      setState(() {
-        final rawImageJson = response.body;
-        final parsedImageJson = jsonDecode(rawImageJson);
-        firstDisplayedImage = "https://api.compensationvr.tk/img/" +
-            parsedImageJson[0]['_id'].toString();
+    try {
+      final uri = Uri.parse(
+          'https://api.compensationvr.tk/api/social/imgfeed?offset=' +
+              feedOffsetNumber.toString() +
+              '&count=1&reverse');
+      //cursed sins to get the newest api image
+      http.get(uri).then((response) {
+        setState(() {
+          final rawImageJson = response.body;
+          final parsedImageJson = jsonDecode(rawImageJson);
+          print("image: " +
+              parsedImageJson[0]['_id'].toString()); //log current pulling image
+          try {
+            firstDisplayedImage = "https://api.compensationvr.tk/img/" +
+                parsedImageJson[0]['_id'].toString();
+          } catch (e) {
+            print("embed fail");
+            feedOffsetNumber++;
+          }
+        });
       });
-    });
+    } catch (e) {
+      //fail catch
+      print(e.toString());
+    }
   }
 
   void onTapped(int index) {
@@ -72,7 +87,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    currentImage();
     return Scaffold(
       appBar: AppBar(title: const Text("CVR app")),
       body: PageView(
