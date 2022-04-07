@@ -44,8 +44,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void previousImage() {
-    feedOffsetNumber--;
-    feedLook();
+    if (feedOffsetNumber > 0) {
+      feedOffsetNumber--;
+      feedLook();
+    }
   }
 
   void feedLook() {
