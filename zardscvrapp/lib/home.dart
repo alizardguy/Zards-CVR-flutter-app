@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:matcher/matcher.dart';
-import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
@@ -85,6 +82,12 @@ class _HomeScreenState extends State<HomeScreen> {
       pageController.animateToPage(index,
           duration: const Duration(milliseconds: 300), curve: Curves.ease);
     });
+  }
+
+  @override
+  void initState() {
+    currentImage();
+    super.initState();
   }
 
   @override
