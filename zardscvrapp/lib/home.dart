@@ -35,11 +35,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void nextImage() {
     feedOffsetNumber++;
+    print(feedOffsetNumber);
     feedLook();
   }
 
   void previousImage() {
     feedOffsetNumber--;
+    print(feedOffsetNumber);
     feedLook();
   }
 
@@ -70,6 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    currentImage();
     return Scaffold(
       appBar: AppBar(title: const Text("CVR app")),
       body: PageView(
