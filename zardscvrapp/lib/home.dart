@@ -54,12 +54,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   //reset scroll
   void scrollUp() {
-    final double start = 0;
+    const double start = 0;
     feedScrollControl.jumpTo(start);
   }
 
   void feedLook() {
     try {
+      debugPrint("offset: " + feedOffsetNumber.toString());
       final uri = Uri.parse(
           'https://api.compensationvr.tk/api/social/imgfeed?offset=' +
               feedOffsetNumber.toString() +
@@ -71,56 +72,80 @@ class _HomeScreenState extends State<HomeScreen> {
           final parsedImageJson = jsonDecode(rawImageJson);
           //first image
           try {
+            debugPrint("loading Image 1");
             firstDisplayedImage = "https://api.compensationvr.tk/img/" +
                 parsedImageJson[0]['_id'].toString();
             firstImageText =
                 "@" + parsedImageJson[0]['takenBy']['username'].toString();
+            debugPrint("image 1 loaded");
           } catch (e) {
+            debugPrint("image 1 failed loading");
             firstDisplayedImage = 'https://i.imgur.com/weClCCE.png';
           }
           //second image
           try {
+            debugPrint("loading Image 2");
             secondDisplayedImage = "https://api.compensationvr.tk/img/" +
                 parsedImageJson[1]['_id'].toString();
             secondImageText =
                 "@" + parsedImageJson[1]['takenBy']['username'].toString();
+            debugPrint("image 2 loaded");
           } catch (e) {
+            debugPrint("image 2 failed loading");
             secondDisplayedImage = 'https://i.imgur.com/weClCCE.png';
           }
           //third image
           try {
+            debugPrint("loading Image 3");
             thirdDisplayedImage = "https://api.compensationvr.tk/img/" +
                 parsedImageJson[2]['_id'].toString();
             thirdImageText =
                 " @" + parsedImageJson[2]['takenBy']['username'].toString();
+            debugPrint("image 3 loaded");
           } catch (e) {
+            debugPrint("image 3 failed loading");
             thirdDisplayedImage = 'https://i.imgur.com/weClCCE.png';
           }
           //forth image
           try {
+            debugPrint("loading Image 4");
             forthDisplayedImage = "https://api.compensationvr.tk/img/" +
                 parsedImageJson[3]['_id'].toString();
             forthImageText =
                 "@" + parsedImageJson[3]['takenBy']['username'].toString();
+            debugPrint("image 4 loaded");
           } catch (e) {
+            debugPrint("image 4 failed loading");
             forthDisplayedImage = 'https://i.imgur.com/weClCCE.png';
           }
           //fifth image
           try {
+            debugPrint("loading Image 5");
             fifthDisplayedImage = "https://api.compensationvr.tk/img/" +
-                parsedImageJson[4]['_id'].toString();
+                parsedImageJson[4]['_id'].toString() +
+                ".png";
             fifthImageText =
                 "@" + parsedImageJson[4]['takenBy']['username'].toString();
+            debugPrint("5th image, id:" +
+                parsedImageJson[4]['_id'].toString() +
+                " from @" +
+                parsedImageJson[4]['takenBy']['username'].toString() +
+                " been loaded");
           } catch (e) {
+            debugPrint("image 5 failed loading");
             fifthDisplayedImage = 'https://i.imgur.com/weClCCE.png';
           }
           //sixth image
           try {
+            debugPrint("loading Image 6");
             sixthDisplayedImage = "https://api.compensationvr.tk/img/" +
-                parsedImageJson[5]['_id'].toString();
+                parsedImageJson[5]['_id'].toString() +
+                ".png";
             sixthImageText =
                 "@" + parsedImageJson[5]['takenBy']['username'].toString();
+            debugPrint("image 6 loaded");
           } catch (e) {
+            debugPrint("image 6 failed loading");
             sixthDisplayedImage = 'https://i.imgur.com/weClCCE.png';
           }
           scrollUp();
@@ -128,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     } catch (e) {
       //fail catch
-      print(e.toString());
+      debugPrint("api call fail: " + e.toString());
     }
   }
 
