@@ -345,8 +345,9 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: "users"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "wip"),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: "lookup"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.pending_actions), label: "WIP"),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: const Color.fromARGB(255, 185, 108, 199),
