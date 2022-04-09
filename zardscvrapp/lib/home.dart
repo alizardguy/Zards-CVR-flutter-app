@@ -98,38 +98,39 @@ class _HomeScreenState extends State<HomeScreen> {
         controller: pageController,
         children: [
           //page 1
-          Column(
-            children: [
-              Flexible(child: Image.network(firstDisplayedImage)),
-              Center(
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                    //latest button
-                    Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: ElevatedButton(
-                            onPressed: currentImage,
-                            child: const Text("Latest"))),
-                    //back button
-                    Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: ElevatedButton(
-                            onPressed: previousImage,
-                            child: const Text("Back"))),
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                Image.network(firstDisplayedImage),
+                Image.network(firstDisplayedImage),
+                Image.network(firstDisplayedImage),
+                Image.network(firstDisplayedImage),
+                Image.network(firstDisplayedImage),
+                Center(
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                      //latest button
+                      Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: ElevatedButton(
+                              onPressed: currentImage,
+                              child: const Text("Latest"))),
+                      //back button
+                      Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: ElevatedButton(
+                              onPressed: previousImage,
+                              child: const Text("Back"))),
 
-                    //next button
-                    Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: ElevatedButton(
-                            onPressed: nextImage, child: const Text("Next"))),
-                    //user
-                    const Text("@username",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold)), //Image uploader
-                  ]))
-            ],
+                      //next button
+                      Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: ElevatedButton(
+                              onPressed: nextImage, child: const Text("Next"))),
+                    ]))
+              ],
+            ),
           ),
           //page 2
           Container(color: Colors.blue),
