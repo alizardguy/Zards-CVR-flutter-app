@@ -15,6 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 //button image feed
   int feedOffsetNumber = 0;
+  static const double feedPaddingSpace = 20;
 
 //functions n stuff
   String firstDisplayedImage = "https://api.compensationvr.tk/img/113.png";
@@ -101,11 +102,36 @@ class _HomeScreenState extends State<HomeScreen> {
           SingleChildScrollView(
             child: Column(
               children: [
-                Image.network(firstDisplayedImage),
-                Image.network(firstDisplayedImage),
-                Image.network(firstDisplayedImage),
-                Image.network(firstDisplayedImage),
-                Image.network(firstDisplayedImage),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: feedPaddingSpace),
+                  child: Image.network(firstDisplayedImage),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: feedPaddingSpace),
+                  child: Image.network(firstDisplayedImage),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: feedPaddingSpace),
+                  child: Image.network(firstDisplayedImage),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: feedPaddingSpace),
+                  child: Image.network(firstDisplayedImage),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: feedPaddingSpace),
+                  child: Image.network(firstDisplayedImage),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: feedPaddingSpace),
+                  child: Image.network(firstDisplayedImage),
+                ),
                 Center(
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
