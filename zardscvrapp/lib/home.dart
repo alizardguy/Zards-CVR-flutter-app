@@ -73,8 +73,8 @@ class _HomeScreenState extends State<HomeScreen> {
           try {
             firstDisplayedImage = "https://api.compensationvr.tk/img/" +
                 parsedImageJson[0]['_id'].toString();
-            firstImageText = "taken by: @" +
-                parsedImageJson[0]['takenBy']['username'].toString();
+            firstImageText =
+                "@" + parsedImageJson[0]['takenBy']['username'].toString();
           } catch (e) {
             firstDisplayedImage = 'https://i.imgur.com/weClCCE.png';
           }
@@ -82,8 +82,8 @@ class _HomeScreenState extends State<HomeScreen> {
           try {
             secondDisplayedImage = "https://api.compensationvr.tk/img/" +
                 parsedImageJson[1]['_id'].toString();
-            secondImageText = "taken by: @" +
-                parsedImageJson[1]['takenBy']['username'].toString();
+            secondImageText =
+                "@" + parsedImageJson[1]['takenBy']['username'].toString();
           } catch (e) {
             secondDisplayedImage = 'https://i.imgur.com/weClCCE.png';
           }
@@ -91,8 +91,8 @@ class _HomeScreenState extends State<HomeScreen> {
           try {
             thirdDisplayedImage = "https://api.compensationvr.tk/img/" +
                 parsedImageJson[2]['_id'].toString();
-            thirdImageText = "taken by: @" +
-                parsedImageJson[2]['takenBy']['username'].toString();
+            thirdImageText =
+                " @" + parsedImageJson[2]['takenBy']['username'].toString();
           } catch (e) {
             thirdDisplayedImage = 'https://i.imgur.com/weClCCE.png';
           }
@@ -100,8 +100,8 @@ class _HomeScreenState extends State<HomeScreen> {
           try {
             forthDisplayedImage = "https://api.compensationvr.tk/img/" +
                 parsedImageJson[3]['_id'].toString();
-            forthImageText = "taken by: @" +
-                parsedImageJson[3]['takenBy']['username'].toString();
+            forthImageText =
+                "@" + parsedImageJson[3]['takenBy']['username'].toString();
           } catch (e) {
             forthDisplayedImage = 'https://i.imgur.com/weClCCE.png';
           }
@@ -109,8 +109,8 @@ class _HomeScreenState extends State<HomeScreen> {
           try {
             fifthDisplayedImage = "https://api.compensationvr.tk/img/" +
                 parsedImageJson[4]['_id'].toString();
-            fifthImageText = "taken by: @" +
-                parsedImageJson[4]['takenBy']['username'].toString();
+            fifthImageText =
+                "@" + parsedImageJson[4]['takenBy']['username'].toString();
           } catch (e) {
             fifthDisplayedImage = 'https://i.imgur.com/weClCCE.png';
           }
@@ -118,8 +118,8 @@ class _HomeScreenState extends State<HomeScreen> {
           try {
             sixthDisplayedImage = "https://api.compensationvr.tk/img/" +
                 parsedImageJson[5]['_id'].toString();
-            sixthImageText = "taken by: @" +
-                parsedImageJson[5]['takenBy']['username'].toString();
+            sixthImageText =
+                "@" + parsedImageJson[5]['takenBy']['username'].toString();
           } catch (e) {
             sixthDisplayedImage = 'https://i.imgur.com/weClCCE.png';
           }
@@ -165,77 +165,114 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Color.fromARGB(255, 66, 66, 66),
                         borderRadius: BorderRadius.only()),
                     margin: const EdgeInsets.all(feedPaddingSpace),
-                    padding: EdgeInsets.all(feedPaddingSpace),
+                    padding: const EdgeInsets.all(feedPaddingSpace),
                     child: Column(children: [
                       Padding(
                           padding: const EdgeInsets.symmetric(vertical: 0.1),
                           child: Align(
                             alignment: Alignment.centerLeft,
-                            child: Text(firstImageText),
+                            child: Text(firstImageText,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20)),
                           )),
                       Image.network(firstDisplayedImage)
                     ])),
-                //
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: feedPaddingSpace),
-                  child: Image.network(secondDisplayedImage),
-                ),
-                Text(secondImageText),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: feedPaddingSpace),
-                  child: Image.network(thirdDisplayedImage),
-                ),
-                Text(thirdImageText),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: feedPaddingSpace),
-                  child: Image.network(forthDisplayedImage),
-                ),
-                Text(forthImageText),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: feedPaddingSpace),
-                  child: Image.network(fifthDisplayedImage),
-                ),
-                Text(fifthImageText),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: feedPaddingSpace),
-                  child: Image.network(sixthDisplayedImage),
-                ),
-                Text(sixthImageText),
-                Center(
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                      //latest button
+                //image container 2
+                Container(
+                    decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 66, 66, 66),
+                        borderRadius: BorderRadius.only()),
+                    margin: const EdgeInsets.all(feedPaddingSpace),
+                    padding: const EdgeInsets.all(feedPaddingSpace),
+                    child: Column(children: [
                       Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: ElevatedButton(
-                              onPressed: currentImage,
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.purple),
-                              child: const Text("Latest"))),
-                      //back button
+                          padding: const EdgeInsets.symmetric(vertical: 0.1),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(secondImageText,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20)),
+                          )),
+                      Image.network(secondDisplayedImage)
+                    ])),
+                //image container 3
+                Container(
+                    decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 66, 66, 66),
+                        borderRadius: BorderRadius.only()),
+                    margin: const EdgeInsets.all(feedPaddingSpace),
+                    padding: const EdgeInsets.all(feedPaddingSpace),
+                    child: Column(children: [
                       Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: ElevatedButton(
-                              onPressed: previousImage,
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.purple),
-                              child: const Text("Back"))),
-
-                      //next button
+                          padding: const EdgeInsets.symmetric(vertical: 0.1),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(thirdImageText,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20)),
+                          )),
+                      Image.network(thirdDisplayedImage)
+                    ])),
+                //image container 4
+                Container(
+                    decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 66, 66, 66),
+                        borderRadius: BorderRadius.only()),
+                    margin: const EdgeInsets.all(feedPaddingSpace),
+                    padding: const EdgeInsets.all(feedPaddingSpace),
+                    child: Column(children: [
                       Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: ElevatedButton(
-                              onPressed: nextImage,
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.purple),
-                              child: const Text("Next"))),
-                    ]))
+                          padding: const EdgeInsets.symmetric(vertical: 0.1),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(forthImageText,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20)),
+                          )),
+                      Image.network(forthDisplayedImage)
+                    ])),
+                //image container 5
+                Container(
+                    decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 66, 66, 66),
+                        borderRadius: BorderRadius.only()),
+                    margin: const EdgeInsets.all(feedPaddingSpace),
+                    padding: const EdgeInsets.all(feedPaddingSpace),
+                    child: Column(children: [
+                      Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 0.1),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(fifthImageText,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20)),
+                          )),
+                      Image.network(fifthDisplayedImage)
+                    ])),
+                //image container 6
+                Container(
+                    decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 66, 66, 66),
+                        borderRadius: BorderRadius.only()),
+                    margin: const EdgeInsets.all(feedPaddingSpace),
+                    padding: const EdgeInsets.all(feedPaddingSpace),
+                    child: Column(children: [
+                      Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 0.1),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(sixthImageText,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20)),
+                          )),
+                      Image.network(sixthDisplayedImage)
+                    ])),
               ],
             ),
           ),
