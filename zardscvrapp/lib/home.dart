@@ -271,7 +271,37 @@ class _HomeScreenState extends State<HomeScreen> {
                                 style: const TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 20)),
                           )),
-                      Image.network(sixthDisplayedImage)
+                      Image.network(sixthDisplayedImage),
+                    ])),
+
+                Center(
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                      //latest button
+                      Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: ElevatedButton(
+                              onPressed: currentImage,
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.purple),
+                              child: const Text("Latest"))),
+                      //back button
+                      Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: ElevatedButton(
+                              onPressed: previousImage,
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.purple),
+                              child: const Text("Back"))),
+                      //next button
+                      Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: ElevatedButton(
+                              onPressed: nextImage,
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.purple),
+                              child: const Text("Next"))),
                     ])),
               ],
             ),
