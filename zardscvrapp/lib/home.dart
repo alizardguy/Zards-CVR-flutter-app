@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int feedOffsetNumber = 0;
   static const double feedPaddingSpace = 15;
 
-//image holders
+//image holders (very cursed, please fix later)
   String firstDisplayedImage = "https://api.compensationvr.tk/img/113.png";
   String secondDisplayedImage = "https://api.compensationvr.tk/img/113.png";
   String thirdDisplayedImage = "https://api.compensationvr.tk/img/113.png";
