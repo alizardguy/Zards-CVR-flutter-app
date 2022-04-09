@@ -15,10 +15,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
 //button image feed
   int feedOffsetNumber = 0;
-  static const double feedPaddingSpace = 20;
+  static const double feedPaddingSpace = 15;
+
+//image holders
+  String firstDisplayedImage = "https://api.compensationvr.tk/img/113.png";
+  String secondDisplayedImage = "https://api.compensationvr.tk/img/113.png";
+  String thirdDisplayedImage = "https://api.compensationvr.tk/img/113.png";
+  String forthDisplayedImage = "https://api.compensationvr.tk/img/113.png";
+  String fifthDisplayedImage = "https://api.compensationvr.tk/img/113.png";
+  String sixthDisplayedImage = "https://api.compensationvr.tk/img/113.png";
 
 //functions n stuff
-  String firstDisplayedImage = "https://api.compensationvr.tk/img/113.png";
   PageController pageController = PageController();
 
   void currentImage() {
@@ -53,20 +60,53 @@ class _HomeScreenState extends State<HomeScreen> {
       final uri = Uri.parse(
           'https://api.compensationvr.tk/api/social/imgfeed?offset=' +
               feedOffsetNumber.toString() +
-              '&count=1&reverse');
+              '&count=5&reverse');
       //cursed sins to get the newest api image
       http.get(uri).then((response) {
         setState(() {
           final rawImageJson = response.body;
           final parsedImageJson = jsonDecode(rawImageJson);
-          print("image: " +
-              parsedImageJson[0]['_id'].toString()); //log current pulling image
+          //first image
           try {
             firstDisplayedImage = "https://api.compensationvr.tk/img/" +
                 parsedImageJson[0]['_id'].toString();
           } catch (e) {
-            print("embed fail");
-            feedOffsetNumber++;
+            firstDisplayedImage = 'https://i.imgur.com/weClCCE.png';
+          }
+          //second image
+          try {
+            secondDisplayedImage = "https://api.compensationvr.tk/img/" +
+                parsedImageJson[1]['_id'].toString();
+          } catch (e) {
+            secondDisplayedImage = 'https://i.imgur.com/weClCCE.png';
+          }
+          //third image
+          try {
+            thirdDisplayedImage = "https://api.compensationvr.tk/img/" +
+                parsedImageJson[2]['_id'].toString();
+          } catch (e) {
+            thirdDisplayedImage = 'https://i.imgur.com/weClCCE.png';
+          }
+          //forth image
+          try {
+            forthDisplayedImage = "https://api.compensationvr.tk/img/" +
+                parsedImageJson[3]['_id'].toString();
+          } catch (e) {
+            forthDisplayedImage = 'https://i.imgur.com/weClCCE.png';
+          }
+          //fifth image
+          try {
+            fifthDisplayedImage = "https://api.compensationvr.tk/img/" +
+                parsedImageJson[4]['_id'].toString();
+          } catch (e) {
+            fifthDisplayedImage = 'https://i.imgur.com/weClCCE.png';
+          }
+          //sixth image
+          try {
+            sixthDisplayedImage = "https://api.compensationvr.tk/img/" +
+                parsedImageJson[5]['_id'].toString();
+          } catch (e) {
+            sixthDisplayedImage = 'https://i.imgur.com/weClCCE.png';
           }
         });
       });
@@ -110,27 +150,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: feedPaddingSpace),
-                  child: Image.network(firstDisplayedImage),
+                  child: Image.network(secondDisplayedImage),
                 ),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: feedPaddingSpace),
-                  child: Image.network(firstDisplayedImage),
+                  child: Image.network(thirdDisplayedImage),
                 ),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: feedPaddingSpace),
-                  child: Image.network(firstDisplayedImage),
+                  child: Image.network(forthDisplayedImage),
                 ),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: feedPaddingSpace),
-                  child: Image.network(firstDisplayedImage),
+                  child: Image.network(fifthDisplayedImage),
                 ),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: feedPaddingSpace),
-                  child: Image.network(firstDisplayedImage),
+                  child: Image.network(sixthDisplayedImage),
                 ),
                 Center(
                     child: Row(
