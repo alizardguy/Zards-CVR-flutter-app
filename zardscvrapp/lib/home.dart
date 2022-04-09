@@ -30,27 +30,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void currentImage() {
     feedOffsetNumber = 0;
-    final uri = Uri.parse(
-        'https://api.compensationvr.tk/api/social/imgfeed?offset=0&count=1&reverse');
-    //cursed sins to get the newest api image
-    http.get(uri).then((response) {
-      setState(() {
-        final rawImageJson = response.body;
-        final parsedImageJson = jsonDecode(rawImageJson);
-        firstDisplayedImage = "https://api.compensationvr.tk/img/" +
-            parsedImageJson[0]['_id'].toString();
-      });
-    });
+    feedLook();
   }
 
   void nextImage() {
-    feedOffsetNumber++;
+    feedOffsetNumber = feedOffsetNumber + 6;
     feedLook();
   }
 
   void previousImage() {
     if (feedOffsetNumber > 0) {
-      feedOffsetNumber--;
+      feedOffsetNumber = feedOffsetNumber - 6;
       feedLook();
     }
   }
@@ -60,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
       final uri = Uri.parse(
           'https://api.compensationvr.tk/api/social/imgfeed?offset=' +
               feedOffsetNumber.toString() +
-              '&count=5&reverse');
+              '&count=6&reverse');
       //cursed sins to get the newest api image
       http.get(uri).then((response) {
         setState(() {
