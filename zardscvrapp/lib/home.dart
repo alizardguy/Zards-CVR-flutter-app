@@ -159,12 +159,23 @@ class _HomeScreenState extends State<HomeScreen> {
             controller: feedScrollControl,
             child: Column(
               children: [
+                //image container 1
                 Container(
                     decoration: const BoxDecoration(
-                        color: Colors.black, borderRadius: BorderRadius.only()),
+                        color: Color.fromARGB(255, 66, 66, 66),
+                        borderRadius: BorderRadius.only()),
                     margin: const EdgeInsets.all(feedPaddingSpace),
-                    child: Image.network(firstDisplayedImage)),
-                Text(firstImageText),
+                    padding: EdgeInsets.all(feedPaddingSpace),
+                    child: Column(children: [
+                      Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 0.1),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(firstImageText),
+                          )),
+                      Image.network(firstDisplayedImage)
+                    ])),
+                //
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: feedPaddingSpace),
