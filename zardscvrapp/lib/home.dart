@@ -74,7 +74,8 @@ class _HomeScreenState extends State<HomeScreen> {
           try {
             debugPrint("loading Image 1");
             firstDisplayedImage = "https://api.compensationvr.tk/img/" +
-                parsedImageJson[0]['_id'].toString();
+                parsedImageJson[0]['_id'].toString() +
+                ".png";
             firstImageText =
                 "@" + parsedImageJson[0]['takenBy']['username'].toString();
             debugPrint("image 1 loaded");
@@ -86,7 +87,8 @@ class _HomeScreenState extends State<HomeScreen> {
           try {
             debugPrint("loading Image 2");
             secondDisplayedImage = "https://api.compensationvr.tk/img/" +
-                parsedImageJson[1]['_id'].toString();
+                parsedImageJson[1]['_id'].toString() +
+                ".png";
             secondImageText =
                 "@" + parsedImageJson[1]['takenBy']['username'].toString();
             debugPrint("image 2 loaded");
@@ -98,7 +100,8 @@ class _HomeScreenState extends State<HomeScreen> {
           try {
             debugPrint("loading Image 3");
             thirdDisplayedImage = "https://api.compensationvr.tk/img/" +
-                parsedImageJson[2]['_id'].toString();
+                parsedImageJson[2]['_id'].toString() +
+                ".png";
             thirdImageText =
                 " @" + parsedImageJson[2]['takenBy']['username'].toString();
             debugPrint("image 3 loaded");
@@ -110,7 +113,8 @@ class _HomeScreenState extends State<HomeScreen> {
           try {
             debugPrint("loading Image 4");
             forthDisplayedImage = "https://api.compensationvr.tk/img/" +
-                parsedImageJson[3]['_id'].toString();
+                parsedImageJson[3]['_id'].toString() +
+                ".png";
             forthImageText =
                 "@" + parsedImageJson[3]['takenBy']['username'].toString();
             debugPrint("image 4 loaded");
