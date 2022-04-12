@@ -61,6 +61,9 @@ class _HomeScreenState extends State<HomeScreen> {
   void feedLook() {
     try {
       debugPrint("offset: " + feedOffsetNumber.toString());
+      final Image noImage = Image.network(
+        "https://i.imgur.com/weClCCE.png",
+      );
       final uri = Uri.parse(
           'https://api.compensationvr.tk/api/social/imgfeed?offset=' +
               feedOffsetNumber.toString() +
@@ -71,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
           final rawImageJson = response.body;
           final parsedImageJson = jsonDecode(rawImageJson);
           //first image
+
           try {
             debugPrint("loading Image 1");
             firstDisplayedImage = "https://api.compensationvr.tk/img/" +
@@ -205,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 style: const TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 20)),
                           )),
-                      Image.network(firstDisplayedImage)
+                      Image.network(firstDisplayedImage),
                     ])),
                 //image container 2
                 Container(
